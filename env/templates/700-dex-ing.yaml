@@ -1,6 +1,6 @@
+{{- if .Values.sso.enabled }}
 {{- $prefix := printf "%s." .Values.cluster.projectID }}
 {{- $rootDomain := trimPrefix $prefix .Values.cluster.domain }}
-{{- if .Values.sso.enabled }}
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:

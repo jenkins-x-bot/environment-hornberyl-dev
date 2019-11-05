@@ -153,26 +153,6 @@ sso:
 {{- $prefix := printf "%s." .Requirements.cluster.project }}
 {{- $rootDomain := trimPrefix $prefix .Requirements.ingress.domain }}
 
-ui:
-{{- if .Requirements.ingress.tls }}
-{{- if eq .Requirements.ingress.tls.production false }}
-  sslInsecureSkipVerify: true
-{{- end }}
-{{- end }}
-  skipExposeService: true
-  sso:
-    create: true
-    connector: google
-{{- if .Requirements.ingress.tls }}
-{{- if eq .Requirements.ingress.tls.production true }}
-    certIssuerName: letsencrypt-prod
-{{- else }}
-    certIssuerName: letsencrypt-staging
-{{- end }}
-{{- end }}
-    domain: "{{ $rootDomain }}"
-    oidcIssuerUrl: "https://dex{{ .Requirements.ingress.namespaceSubDomain }}{{ $rootDomain }}"
-
 {{- if .Requirements.autoUpdate }}
 autoUpdate:
   schedule: {{ .Requirements.autoUpdate.schedule | quote }}
@@ -192,5 +172,6 @@ arcalos:
   gitOwner: vault:arcalos:git-owner
   prowHMACToken: vault:arcalos:prow-hmac-token
   ciSA: vault:arcalos-sa:json
+  runBootSchedule: "*/5 * * * *"
 
 basicAuth: "{{ .Parameters.adminUser.username }}:{SHA}{{ .Parameters.adminUser.password | hashPassword }}"

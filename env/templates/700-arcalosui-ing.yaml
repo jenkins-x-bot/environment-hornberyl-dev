@@ -5,7 +5,7 @@ kind: Ingress
 metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
-  name: arcalosui
+  name: jxui
 spec:
   rules:
   # This domain MUST be first as the oauth proxy uses the first domain in the list to work out it's redirect url
@@ -13,19 +13,19 @@ spec:
     http:
       paths:
         - backend:
-            serviceName: sso-jenkins-x-arcalosui
+            serviceName: sso-jenkins-x-jxui
             servicePort: 80
-  - host: arcalosui{{ .Values.cluster.namespaceSubDomain }}{{ .Values.cluster.domain }}
+  - host: jxui{{ .Values.cluster.namespaceSubDomain }}{{ .Values.cluster.domain }}
     http:
       paths:
         - backend:
-            serviceName: sso-jenkins-x-arcalosui
+            serviceName: sso-jenkins-x-jxui
             servicePort: 80
 {{- if .Values.cluster.tls }}
   tls:
   - hosts:
       - dashboard.{{ $rootDomain }}
-      - arcalosui{{ .Values.cluster.namespaceSubDomain }}{{ .Values.cluster.domain }}
+      - jxui{{ .Values.cluster.namespaceSubDomain }}{{ .Values.cluster.domain }}
 {{- if eq .Values.certmanager.production "true" }}
     secretName: "tls-{{ .Values.cluster.domain | replace "." "-" }}-p"
 {{- else }}

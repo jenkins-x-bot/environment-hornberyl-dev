@@ -12,8 +12,6 @@ cluster:
   gitName: github
   gitPublic: true
   gitServer: https://github.com
-  gke:
-    projectNumber: "603585481021"
   kanikoSAName: hornberyl-ko
   namespace: jx
   project: aps-hornberyl
@@ -84,6 +82,6 @@ vault:
   serviceAccount: hornberyl-vt
 velero: {}
 versionStream:
-  ref: v0.0.38
+  ref: v0.0.69
   url: https://github.com/cloudbees/arcalos-jenkins-x-versions.git
 webhook: prow

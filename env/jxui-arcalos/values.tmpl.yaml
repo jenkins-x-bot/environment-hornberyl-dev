@@ -1,0 +1,17 @@
+{{- $prefix := printf "%s." .Requirements.cluster.project }}
+{{- $rootDomain := trimPrefix $prefix .Requirements.ingress.domain }}
+jxui:
+  gcpSA: vault:jx-tenant-service-saas-sa:json
+  replicaCount: 2
+  skipExposeService: true
+  sso:
+    create: true
+    connector: cloudbees-google
+    certIssuerName: letsencrypt-prod
+    domain: "{{ $rootDomain }}"
+    oidcIssuerUrl: "https://dex{{ .Requirements.ingress.namespaceSubDomain }}{{ $rootDomain }}"
+  roxApiKey: vault:rox:api-key
+  service:
+    serviceAnnotations:
+      fabric8.io/expose: "false"
+      fabric8.io/exposeUrl: https://arcalosui{{ .Requirements.ingress.namespaceSubDomain }}{{ $rootDomain }}

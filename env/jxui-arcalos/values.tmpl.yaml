@@ -10,7 +10,8 @@ jxui:
     certIssuerName: letsencrypt-prod
     domain: "{{ $rootDomain }}"
     oidcIssuerUrl: "https://dex{{ .Requirements.ingress.namespaceSubDomain }}{{ $rootDomain }}"
-  roxApiKey: vault:rox:api-key
+  roxApiKey: vault:rox:api-key # pragma: allowlist secret
+  segmentWriteKey: vault:segment:write-key
   service:
     serviceAnnotations:
       fabric8.io/expose: "false"

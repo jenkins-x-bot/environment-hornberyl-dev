@@ -1,32 +1,32 @@
 dependencies:
-- name: arcalosui
-  repository: https://storage.googleapis.com/chartmuseum.jenkins-x.io
-  version: 0.0.74
 - name: jenkins-x-platform
   repository: https://storage.googleapis.com/chartmuseum.jenkins-x.io
-- name: jx-app-kuberhealthy
+- alias: jx-app-kuberhealthy
+  condition: jx-app-kuberhealthy.enabled
+  name: jx-app-kuberhealthy
   repository: https://storage.googleapis.com/chartmuseum.jenkins-x.io
   version: 0.0.2
-  condition: jx-app-kuberhealthy.enabled
-  alias: jx-app-kuberhealthy
 - name: jx-app-replicator
   repository: https://storage.googleapis.com/chartmuseum.jenkins-x.io
   version: 1.0.14
 - name: jx-app-sso
   repository: https://storage.googleapis.com/chartmuseum.jenkins-x.io
-  version: 0.0.19
+  version: 0.0.23
 - name: jx-tenant-service
   repository: https://storage.googleapis.com/chartmuseum.jenkins-x.io
-  version: 0.0.237
+  version: 0.0.261
 - name: jxboot-resources
   repository: https://storage.googleapis.com/chartmuseum.jenkins-x.io
 - name: jxui-arcalos
   repository: https://charts.cloudbees.com/cjxd/cloudbees
-  version: 0.0.931
+  version: 0.0.1003
 - alias: lighthouse
   condition: lighthouse.enabled
   name: lighthouse
   repository: https://storage.googleapis.com/chartmuseum.jenkins-x.io
+- name: lighthouse-githubapp
+  repository: https://storage.googleapis.com/chartmuseum.jenkins-x.io
+  version: 0.0.177
 - alias: prow
   condition: prow.enabled
   name: prow

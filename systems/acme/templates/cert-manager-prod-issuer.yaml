@@ -12,6 +12,7 @@ spec:
     privateKeySecretRef:
       name: letsencrypt-prod
     solvers:
+    # The default solver for the cluster
     - selector:
         dnsNames:
         - "*.{{ .Values.cluster.domain }}"

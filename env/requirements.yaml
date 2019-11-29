@@ -14,19 +14,19 @@ dependencies:
   version: 0.0.23
 - name: jx-tenant-service
   repository: https://storage.googleapis.com/chartmuseum.jenkins-x.io
-  version: 0.0.261
+  version: 0.0.264
 - name: jxboot-resources
   repository: https://storage.googleapis.com/chartmuseum.jenkins-x.io
 - name: jxui-arcalos
   repository: https://charts.cloudbees.com/cjxd/cloudbees
-  version: 0.0.1003
+  version: 0.0.1021
 - alias: lighthouse
   condition: lighthouse.enabled
   name: lighthouse
   repository: https://storage.googleapis.com/chartmuseum.jenkins-x.io
 - name: lighthouse-githubapp
   repository: https://storage.googleapis.com/chartmuseum.jenkins-x.io
-  version: 0.0.177
+  version: 0.0.217
 - alias: prow
   condition: prow.enabled
   name: prow

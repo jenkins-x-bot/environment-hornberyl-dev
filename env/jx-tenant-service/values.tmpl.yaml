@@ -2,9 +2,9 @@ replicaCount: 2
 parentDomain: {{ .Parameters.parentDomain }}
 parentProject: {{ .Parameters.parentProject}}
 parentDNSZone: {{ .Parameters.parentDNSZone}}
-basicAuthPassword: vault:jx-tenant-service-ba:password
+basicAuthPassword: vault:jx-tenant-service-ba:password # pragma: allowlist secret
 dbUser: jx-tenant-service
-dbPassword: vault:jx-tenant-service-db:password
+dbPassword: vault:jx-tenant-service-db:password # pragma: allowlist secret
 cloudSQLSA: vault:jx-tenant-db-client:sa
 sa: vault:jx-tenant-service-sa:json
 saasSA: vault:jx-tenant-service-saas-sa:json
@@ -16,3 +16,4 @@ service:
   serviceAnnotations:
     fabric8.io/expose: "false"
     fabric8.io/exposeUrl: https://jx-tenant-service{{ .Requirements.ingress.namespaceSubDomain }}{{ .Requirements.ingress.domain }}
+segmentWriteKey: vault:segment:write-key

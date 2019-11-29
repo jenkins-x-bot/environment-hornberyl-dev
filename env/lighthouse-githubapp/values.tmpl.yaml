@@ -4,3 +4,6 @@ id: vault:lh-github-app:id
 secret: vault:lh-github-app:secret # pragma: allowlist secret
 
 replicaCount: 3
+
+env:
+  BOT_NAME: arcalos-staging[bot]

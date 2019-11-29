@@ -17,3 +17,5 @@ service:
     fabric8.io/expose: "false"
     fabric8.io/exposeUrl: https://jx-tenant-service{{ .Requirements.ingress.namespaceSubDomain }}{{ .Requirements.ingress.domain }}
 segmentWriteKey: vault:segment:write-key
+env:
+  BOT_NAME: arcalos-staging[bot]

@@ -4,6 +4,7 @@ datadog:
     clusterName: hornberyl
     tags:
       - env:staging
+      - clustername:hornberyl
     nonLocalTraffic: true
     collectEvents: true
     leaderElection: true

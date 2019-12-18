@@ -1,10 +1,10 @@
 datadog:
   datadog:
     apiKey: vault:datadog-app:apiKey
-    clusterName: hornberyl
+    clusterName: "{{ .Requirements.cluster.clusterName }}"
     tags:
       - env:staging
-      - clustername:hornberyl
+      - clustername:"{{ .Requirements.cluster.clusterName }}"
     nonLocalTraffic: true
     collectEvents: true
     leaderElection: true

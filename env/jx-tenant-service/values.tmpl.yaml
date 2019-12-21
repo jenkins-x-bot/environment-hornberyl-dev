@@ -19,5 +19,7 @@ service:
 segmentWriteKey: vault:segment:write-key
 env:
   BOT_NAME: arcalos-staging[bot]
+  JX_FAIL_MISSING_SIGNATURE: true
   JXT_PIPELINE_GIT_TAG: v0.0.632
   JXT_PIPELINE_TEMPLATE_NAME: cloudbees-poc-it-0.0.632
+  

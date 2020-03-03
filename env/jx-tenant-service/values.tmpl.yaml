@@ -22,4 +22,11 @@ env:
   JX_FAIL_MISSING_SIGNATURE: true
   JXT_PIPELINE_GIT_TAG: v0.0.754
   JXT_PIPELINE_TEMPLATE_NAME: cloudbees-poc-it-0.0.731
-  
+
+updateController:
+  env:
+    JX_LOG_LEVEL: "debug"
+    JX_LOG_FORMAT: "json"
+  saasSecret:
+    name: arcalos-prod-secret
+    key: arcalosProdSA  

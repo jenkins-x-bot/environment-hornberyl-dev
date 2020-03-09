@@ -24,6 +24,7 @@ env:
   JXT_PIPELINE_TEMPLATE_NAME: cloudbees-poc-it-0.0.731
 
 updateController:
+  location: us-central1
   env:
     JX_LOG_LEVEL: "debug"
     JX_LOG_FORMAT: "json"

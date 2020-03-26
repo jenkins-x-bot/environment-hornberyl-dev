@@ -1,5 +1,5 @@
-{{- $prefix := printf "%s." .Values.cluster.projectID }}
-{{- $rootDomain := trimPrefix $prefix .Values.cluster.domain }}
+{{- $prefix := printf "%s." .Requirements.cluster.project }}
+{{- $rootDomain := trimPrefix $prefix .Requirements.ingress.domain }}
 config:
   clientID: "{{ .Parameters.dashboardAuthID }}"
   clientSecret: "{{ .Parameters.dashboardAuthSecret }}"

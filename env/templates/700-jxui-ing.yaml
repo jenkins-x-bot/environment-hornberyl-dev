@@ -5,6 +5,7 @@ kind: Ingress
 metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/app-root: /jenkinsx
   name: jxui
 spec:
   rules:
@@ -12,10 +13,6 @@ spec:
   - host: dashboard.{{ $rootDomain }}
     http:
       paths:
-        - backend:
-            serviceName: oauth-proxy-jxui-backend
-            servicePort: 80
-          path: /api
         - backend:
             serviceName: oauth-proxy-jxui-frontend
             servicePort: 80

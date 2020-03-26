@@ -1,0 +1,27 @@
+{{- $prefix := printf "%s." .Values.cluster.projectID }}
+{{- $rootDomain := trimPrefix $prefix .Values.cluster.domain }}
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+  name: jxui-backend
+spec:
+  rules:
+  - host: dashboard.{{ $rootDomain }}
+    http:
+      paths:
+        - backend:
+            serviceName: oauth-proxy-jxui-backend
+            servicePort: 80
+          path: /api
+{{- if .Values.cluster.tls }}
+  tls:
+  - hosts:
+      - dashboard.{{ $rootDomain }}
+{{- if eq .Values.certmanager.production "true" }}
+    secretName: "tls-{{ .Values.cluster.domain | replace "." "-" }}-p"
+{{- else }}
+    secretName: "tls-{{ .Values.cluster.domain | replace "." "-" }}-s"
+{{- end }}
+{{- end }}

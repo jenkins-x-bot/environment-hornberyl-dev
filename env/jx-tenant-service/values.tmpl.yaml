@@ -20,7 +20,6 @@ segmentWriteKey: vault:segment:write-key
 env:
   BOT_NAME: arcalos-staging[bot]
   JX_FAIL_MISSING_SIGNATURE: true
-  JXT_PIPELINE_GIT_TAG: v0.0.955
   GITHUB_APP_INSTALL_URL: https://github.com/apps/arcalos-staging/installations/new
 
 updateController:

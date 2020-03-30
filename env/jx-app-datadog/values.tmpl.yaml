@@ -1,17 +1,22 @@
 datadog:
   datadog:
     apiKey: vault:datadog-app:apiKey
+    appKey: vault:datadog-app:appKey
     clusterName: "{{ .Requirements.cluster.clusterName }}"
     tags:
-      - env:staging
-      - clustername:"{{ .Requirements.cluster.clusterName }}"
+      - env: staging
+      - clustername: "{{ .Requirements.cluster.clusterName }}"
     nonLocalTraffic: true
     collectEvents: true
     leaderElection: true
-    logsEnabled: true
-    logsConfigContainerCollectAll: false
+    logs:
+      enabled: true
+      containerCollectAll: true
     apmEnabled: true
     processAgentEnabled: false
+    acInclude: image:bash image:creds-init image:entrypoint image:git-init image:builder-jx image:jx-tenant-service
+    kubeStateMetrics:
+      enabled: false
     resources:
       requests:
         cpu: 200m
